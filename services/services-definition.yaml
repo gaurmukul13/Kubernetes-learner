@@ -1,0 +1,17 @@
+#Services are Kubernetes resources that enable network access to Pods
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp-service
+spec:
+  type: NodePort 
+  #type will change to clusterIP for internal connectivity with pod
+  # Nodeport for external access with Clients send requests to the IP 
+  # address of a node on one or more nodePort values that are specified by the Service.
+  #load balancer: Exposes the service via the cloud provider's load balancer.
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 30004
+  selector:
+    app: myapp

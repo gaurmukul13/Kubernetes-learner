@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-1
+  labels:
+    app: my-app-2
+    type: backend
+    env: pre-prod
+spec:
+  containers:
+    - name: con-1
+      image: nginx
